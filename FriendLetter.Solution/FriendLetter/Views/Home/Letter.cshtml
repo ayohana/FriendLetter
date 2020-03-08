@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello Friend!</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  </head>
-  <body>
-    <h1>Hello From Afar</h1>
-    <p>Dear Friend,</p>
-    <p>How are you? I hope that you are having a nice weekend. I'm vacationing in Iceland while I learn programming! </p>
-    <p>Friend, you would not believe how cold it is here. I should have gone to Hawaii instead.</p>
-    <p>But I like programming a lot, so I've got that going for me. </p>
-    <p>Looking forward to seeing you soon. I'll bring you back a souvenir. </p>
-    <p>Cheers,</p>
-    <p>Travel Enthusiast Jane</p>
-  </body>
-</html>
+@* We are using Razor (a templating engine) that allows us to add C# logic to views. It's already built into the MVC framework so we don't have to install anything special. Below is updated HTML using Razor syntax: *@
+
+<h1>Hello From Afar</h1>
+<p>Dear @Model.Recipient,</p>
+<p>How are you? I hope that you are having a nice weekend. I'm vacationing in Iceland while I learn programming! </p>
+<p>@Model.Recipient, you would not believe how cold it is here. I should have gone to Hawaii instead.</p>
+<p>But I like programming a lot, so I've got that going for me. </p>
+<p>Looking forward to seeing you soon. I'll bring you back a souvenir. </p>
+<p>Cheers,</p>
+<p>Travel Enthusiast Jane</p>
+
+@* @ character indicates the start of Razor code. The Razor engine will evaluate anything following this symbol. *@
+
+@* Model is a propery that Razor provides so we can access the model that's passed into the view. In this case, we'll be passing an instance of LetterVariable from the model we created (LetterVariable.cs). *@

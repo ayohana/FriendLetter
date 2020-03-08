@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using FriendLetter.Models;
 
 namespace FriendLetter.Controllers
 {
@@ -16,7 +17,11 @@ namespace FriendLetter.Controllers
     public string Goodbye() { return "Goodbye friend."; }
 
     [Route("/")] // A root path and it's the homepage for our site
-    public ActionResult Letter() { return View(); }
+    public ActionResult Letter() {
+      LetterVariable myLetterVariable = new LetterVariable();
+      myLetterVariable.Recipient = "Lina";
+      return View(myLetterVariable);
+    }
     // ActionResult is a built-in MVC class that handles rendering Views.
     // View() is a built-in method from Microsoft.AspNetCore.Mvc namespace. It locate views by name:
       // because views should always reside in a Views directory, View() first locates the Views directory in the production project.
