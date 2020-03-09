@@ -31,5 +31,17 @@ namespace FriendLetter.Controllers
     // NAMING CONVENTION IS VERY IMPORTANT HERE!
     // NOTE: VIEW() DOES NOT CARE ABOUT THE ROUTE DECORATOR!
 
+    [Route("/form")]
+    public ActionResult Form() { return View(); }
+
+    [Route("/postcard")]
+    public ActionResult Postcard(string recipient, string sender)
+    {
+      LetterVariable myLetterVariable = new LetterVariable();
+      myLetterVariable.Recipient = recipient;
+      myLetterVariable.Sender = sender;
+      return View(myLetterVariable);
+    }
+
   }
 }
