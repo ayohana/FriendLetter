@@ -32,6 +32,7 @@ namespace FriendLetter
     // Configure() below is responsible for telling our app how to handle requests to the server. The code inside Configure() states which area of our application should load by default when it launches.
     public void Configure(IApplicationBuilder app)
     {
+      app.UseDeveloperExceptionPage(); // provides a more detailed error message when a Razor page fails to load due to a server error.
       app.UseMvc(routes => // tells our app to use the MVC framework to respond to HTTP requests
       {
         routes.MapRoute(
